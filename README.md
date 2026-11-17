@@ -127,6 +127,23 @@ before relying on it.
 Not included: the API's server-side refusal **fallbacks** parameter (beta). A refusal simply
 switches to the offline engine.
 
+## Web version (phone)
+
+`web/` holds the same course as a single web page for phones. It reuses the curriculum and the
+engine from `src/`: spaced repetition, grading, levels and the writing checker.
+
+- Published as a private claude.ai page. Progress is saved to your claude.ai account, so it is the
+  same on phone and computer, and it is also cached on the device.
+- Pronunciation uses Claude's voice where available, otherwise the browser's own speech.
+- Speaking practice can use the microphone where the browser allows it. Otherwise, type the
+  answer or use your phone keyboard's microphone.
+- Conversation, writing feedback and explanations use Claude through the page itself, so no API
+  key is needed. When Claude isn't available, the same offline engines as the CLI take over.
+
+```bash
+npm run build:web      # → web/dist/eng.html (one self-contained page)
+```
+
 ## Development
 
 ```bash
