@@ -1,0 +1,60 @@
+{
+  "name": "eng-cli",
+  "version": "1.0.0",
+  "description": "eng — a daily English practice CLI (CEFR A1→C1) with spaced repetition, Arabic-first interface, optional Claude AI coach.",
+  "type": "module",
+  "bin": {
+    "eng": "dist/cli.js"
+  },
+  "main": "dist/cli.js",
+  "files": [
+    "dist",
+    "migrations",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "dev": "tsc -p tsconfig.json --watch",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
+  },
+  "keywords": [
+    "english",
+    "cli",
+    "cefr",
+    "spaced-repetition",
+    "arabic",
+    "learning"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.9.0",
+    "@inquirer/prompts": "^8.8.0",
+    "better-sqlite3": "^13.2.0",
+    "boxen": "^9.0.0",
+    "chalk": "^6.0.1",
+    "cli-table3": "^0.6.5",
+    "commander": "^15.1.0",
+    "supports-color": "^11.0.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "prettier": "^3.10.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^5.1.0"
+  }
+}
